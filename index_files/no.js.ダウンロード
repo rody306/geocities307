@@ -1,0 +1,100 @@
+var _____WB$wombat$assign$function_____=function(name){return (self._wb_wombat && self._wb_wombat.local_init && self._wb_wombat.local_init(name))||self[name];};if(!self.__WB_pmw){self.__WB_pmw=function(obj){this.__WB_source=obj;return this;}}{
+let window = _____WB$wombat$assign$function_____("window");
+let self = _____WB$wombat$assign$function_____("self");
+let document = _____WB$wombat$assign$function_____("document");
+let location = _____WB$wombat$assign$function_____("location");
+let top = _____WB$wombat$assign$function_____("top");
+let parent = _____WB$wombat$assign$function_____("parent");
+let frames = _____WB$wombat$assign$function_____("frames");
+let opens = _____WB$wombat$assign$function_____("opens");
+var adFlg = 'no';
+var divAuFlg = false;
+
+var url = 'http://' + document.domain+location.pathname;
+var ref = document.referrer;
+
+divAu();
+
+function divAu() {
+
+	if (divAuFlg) { return; }
+	divAuFlg=true;
+
+	if (!checkDisplayAd()) { return; }
+
+	writeNoAd();
+
+}
+
+function checkDisplayAd() {
+
+	if (isFrameset()) { return false; }
+
+	if (parent.frames.length != 0) {
+		if(!checkFrame()) { return false; }
+	}
+
+	return true;
+
+}
+
+function isFrameset() {
+
+	var numFr = 0;
+	numFr = frames.length;
+	numFr = numFr - document.getElementsByTagName("iframe").length;
+	isFr = (numFr > 0) ? true : false;
+
+	return isFr;
+
+}
+
+function checkFrame() {
+
+	var x = 0;
+	var y = 0;
+
+	if (document.body) { x = document.body.clientWidth; }
+	if (document.body) { y = document.body.clientHeight; }
+
+	return (x > 400 && y > 300) ? true : false;
+
+}
+
+// no
+
+function writeNoAd() {
+
+	var x = 0;
+
+	if (document.body) { x = document.body.clientWidth; }
+
+	document.write("<div id=y_gc_div_adcntr class=y_gcss_ovrtr_au><iframe style=\"border:none;\" src=\"http://bc.geocities.yahoo.co.jp/bc/no/" + jps + "\" width=0 height=0 border=0 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no>no iframe</iframe></div>");
+	document.getElementById('y_gc_div_adcntr').style.visibility = "visible";
+	document.getElementById('y_gc_div_adcntr').style.left = Math.floor(x / 2) - 234;
+
+	return true;
+
+}
+}
+
+/*
+     FILE ARCHIVED ON 13:53:27 Apr 03, 2016 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 23:01:15 Jan 30, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.799
+  exclusion.robots: 0.023
+  exclusion.robots.policy: 0.01
+  esindex: 0.011
+  cdx.remote: 14.103
+  LoadShardBlock: 242.011 (6)
+  PetaboxLoader3.datanode: 179.154 (8)
+  PetaboxLoader3.resolve: 140.989 (3)
+  load_resource: 110.162 (2)
+*/
